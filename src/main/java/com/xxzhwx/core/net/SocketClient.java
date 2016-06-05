@@ -26,11 +26,13 @@ public class SocketClient implements Runnable {
             b.group(group)
                     .channel(NioSocketChannel.class)
                     .option(ChannelOption.TCP_NODELAY, true)
+                    .option(ChannelOption.SO_KEEPALIVE, true)
+                    //.option(ChannelOption.SO_TIMEOUT, 5000)
                     .handler(new SocketServerInitializer());
 
             ChannelFuture f = b.connect(hostname, port).sync();
             channel = f.channel();
-            if (f.isDone()) {
+            if (f.isDone() && f.isSuccess()) {
                 System.out.println("Connect success.");
 
                 /** Todo
