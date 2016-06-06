@@ -6,4 +6,5 @@ public interface Extension {
     }
 
     boolean initialize();
+    boolean destroy();
 }
