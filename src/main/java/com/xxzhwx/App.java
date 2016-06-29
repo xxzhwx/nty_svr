@@ -1,7 +1,7 @@
 package com.xxzhwx;
 
 import com.xxzhwx.core.handler.HandlerManager;
-import com.xxzhwx.core.handler.TestHandler;
+import com.xxzhwx.core.handler.TestRequestHandler;
 import com.xxzhwx.core.net.SocketServer;
 import com.xxzhwx.core.queue.CmdQueue;
 import com.xxzhwx.core.runs.CmdRunnable;
@@ -14,7 +14,7 @@ public class App {
     private final static int PORT = 9090;
 
     public static void main(String[] args) {
-        HandlerManager.getInstance().register(new TestHandler());
+        HandlerManager.getInstance().register(new TestRequestHandler());
 
         ExecutorService exec = Executors.newCachedThreadPool();
         exec.execute(new PreloadRunnable());

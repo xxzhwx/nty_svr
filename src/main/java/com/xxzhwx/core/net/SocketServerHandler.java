@@ -28,7 +28,7 @@ public class SocketServerHandler extends SimpleChannelInboundHandler<Cmd> {
         super.channelInactive(ctx);
 
         InetSocketAddress address = (InetSocketAddress) ctx.channel().remoteAddress();
-        System.out.println("Disconnect channel: " + address.getHostName() + ":" + address.getPort());
+        System.out.println("channelInactive: " + address.getHostName() + ":" + address.getPort());
     }
 
 //    @Override
